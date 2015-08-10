@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django_bootstrap_carousel.models import Carousel, CarouselItem
+from .models import Carousel, CarouselItem
 
 
 class CarouselItemInline(admin.StackedInline):
