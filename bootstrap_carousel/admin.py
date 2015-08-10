@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-#
-# django-bootstrap-carousel
-#
 from django.contrib import admin
 from django_bootstrap_carousel.models import Carousel, CarouselItem
 
