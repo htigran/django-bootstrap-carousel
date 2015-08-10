@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-#
-#
-# django_bootstrap_carousel
-#
-#
+from distutils.version import StrictVersion
 
-version = '0.2'
-
-
+__version__ = StrictVersion("0.2.0")
