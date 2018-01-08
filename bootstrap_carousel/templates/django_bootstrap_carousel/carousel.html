@@ -2,28 +2,29 @@
 <div id="{{ carousel_id }}" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         {% for item in items %}
-        <li data-target="#{{ carousel_id }}" data-slide-to="{{ forloop.counter0 }}"></li>
+        <li data-target="#{{ carousel_id }}" data-slide-to="{{ forloop.counter0 }}" class="item {% if forloop.counter0 == 0 %}active{% endif %}"></li>
         {% endfor %}
     </ol>
 
-    <div class="carousel-inner">
+    <div class="carousel-inner" role="listbox">
         {% for item in items %}
-        <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
+        <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}" style="background-image: url('{% if item.image %}{{ item.image.url }}{% else %} http://placehold.it/1900x1080 {% endif %}')">
             {% if item.url %}<a href="{{ item.url }}">{% endif %}
-            {% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.display_title }}">{% endif %}
             {% if item.url %}</a>{% endif %}
-            <div class="carousel-caption">
+            <div class="carousel-caption d-none d-md-block">
                 {% if item.display_title %}<h3>{{ item.display_title }}</h3>{% endif %}
-                {{ item.display_content|safe }}
+                <p>{{ item.display_content|safe }}</p>
             </div>
         </div>
         {% endfor %}
     </div>
-    <a class="left carousel-control" href="#{{ carousel_id }}" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
+    <a class="carousel-control-prev" href="#{{ carousel_id }}" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#{{ carousel_id }}" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
+    <a class="carousel-control-next" href="#{{ carousel_id }}" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="sr-only">Next</span>
     </a>
 </div>
 {% endwith %}
